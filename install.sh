@@ -50,8 +50,12 @@ apt-get update
 apt-get install -y init-system-helpers docker-engine
 service docker start
 
+## CONFIGURE AUTO START AT BOOT
+update-rc.d docker defaults
+update-rc.d docker enable
+
 ## ADD USER TO DOCKER GROUP
 usermod -a -G docker "$USER_NAME"
 
 ## THE END
-echo "Just logout and in again"
+echo -e "\nDone\nJust logout and in again"
