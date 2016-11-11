@@ -1,4 +1,4 @@
-PROJECT_NAME := postgres
+PROJECT_NAME := pumgrana-postgres
 REGISTRY := docker.pumgrana.com
 
 docker:

@@ -1,4 +1,4 @@
-PROJECT_NAME := elasticsearch
+PROJECT_NAME := pumgrana-elasticsearch
 REGISTRY := docker.pumgrana.com
 
 docker:

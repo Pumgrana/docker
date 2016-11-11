@@ -1,0 +1,38 @@
+webapp:
+  image: webapp:latest
+  ports:
+    - "80:80"
+  links:
+    - api-user
+
+api-user:
+  image: api-user:latest
+  links:
+    - api-authentication
+    - elasticsearch
+    - postgres
+
+api-authentication:
+  image: api-authentication:latest
+
+api-plugin:
+  image: api-plugin:latest
+  ports:
+    - "9000:9000"
+  links:
+    - api-authentication
+    - elasticsearch
+    - postgres
+
+elasticsearch:
+  image: pumgrana-elasticsearch:latest
+  environment:
+    ES_HEAP_SIZE: 2g
+  volumes:
+    - /srv/data/elasticsearch/test:/usr/share/elasticsearch/data
+  command: "./bin/elasticsearch -Des.nodes.discovery=false"
+
+postgres:
+  image: pumgrana-postgres:latest
+  volumes:
+    - /srv/data/pgsql/test:/usr/local/pgsql/data
