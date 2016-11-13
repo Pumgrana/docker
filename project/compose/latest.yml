@@ -35,4 +35,4 @@ elasticsearch:
 postgres:
   image: pumgrana-postgres:latest
   volumes:
-    - /srv/data/pgsql/test:/usr/local/pgsql/data
+    - /srv/data/pgsql/test:/var/lib/postgresql/data
