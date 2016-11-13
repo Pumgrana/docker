@@ -50,6 +50,10 @@ apt-get update
 apt-get install -y init-system-helpers docker-engine
 service docker start
 
+## INSTALL DOCKER COMPOSER
+apt-get install python-pip
+pip install docker-compose
+
 ## CONFIGURE AUTO START AT BOOT
 update-rc.d docker defaults
 update-rc.d docker enable
