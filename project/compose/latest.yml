@@ -1,22 +1,24 @@
 webapp:
-  image: webapp:latest
+  image: pumgrana-webapp:latest
   ports:
     - "80:80"
   links:
     - api-user
 
 api-user:
-  image: api-user:latest
+  image: pumgrana-api-user:latest
   links:
     - api-authentication
     - elasticsearch
     - postgres
 
 api-authentication:
-  image: api-authentication:latest
+  image: pumgrana-api-authentication:latest
+  links:
+    - postgres
 
 api-plugin:
-  image: api-plugin:latest
+  image: pumgrana-api-plugin:latest
   ports:
     - "9000:9000"
   links:
