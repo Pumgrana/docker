@@ -1,12 +1,19 @@
-webapp:
-  image: pumgrana-webapp:latest
+proxy:
+  image: pumgrana-proxy
+  restart: always
   ports:
     - "80:80"
   links:
     - api-user
+    - dashboard
+
+dashboard:
+  image: pumgrana-dashboard:latest
+  restart: always
 
 api-user:
   image: pumgrana-api-user:latest
+  restart: always
   links:
     - api-authentication
     - elasticsearch
@@ -14,11 +21,13 @@ api-user:
 
 api-authentication:
   image: pumgrana-api-authentication:latest
+  restart: always
   links:
     - postgres
 
 api-plugin:
   image: pumgrana-api-plugin:latest
+  restart: always
   ports:
     - "9000:9000"
   links:
@@ -28,6 +37,7 @@ api-plugin:
 
 elasticsearch:
   image: pumgrana-elasticsearch:latest
+  restart: always
   environment:
     ES_HEAP_SIZE: 2g
   volumes:
@@ -36,5 +46,6 @@ elasticsearch:
 
 postgres:
   image: pumgrana-postgres:latest
+  restart: always
   volumes:
     - /srv/data/pgsql/test:/var/lib/postgresql/data
