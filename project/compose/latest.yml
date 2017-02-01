@@ -1,9 +1,12 @@
 proxy:
-  image: pumgrana-proxy
+  image: pumgrana-proxy:latest
   restart: always
+  environment:
+    CONF_FILE: pumgrana.conf
   ports:
     - "80:80"
   links:
+    - api-authentication
     - api-user
     - dashboard
 
