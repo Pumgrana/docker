@@ -1,4 +1,4 @@
 #!/bin/bash
 
-/launcher.sh &
+#/launcher.sh &
 /docker-entrypoint.sh "$@"
