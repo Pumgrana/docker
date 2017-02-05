@@ -1,6 +1,7 @@
 FROM elasticsearch:2.4
 
 ENV ES_HEAP_SIZE=2g
+ENV ES_JAVA_OPTS="-Des.insecure.allow.root=true"
 
 RUN bin/plugin install mobz/elasticsearch-head
 
