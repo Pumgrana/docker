@@ -45,6 +45,8 @@ elasticsearch:
     ES_HEAP_SIZE: 2g
   volumes:
     - /srv/data/elasticsearch/test:/usr/share/elasticsearch/data
+  ports:
+    - "9200:9200"
   command: "./bin/elasticsearch -Des.nodes.discovery=false"
 
 postgres:
