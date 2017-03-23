@@ -6,35 +6,17 @@ proxy:
   ports:
     - "80:80"
   links:
-    - api-authentication
-    - api-user
+    - pum-api
     - dashboard
 
 dashboard:
   image: pumgrana-dashboard:latest
   restart: always
 
-api-user:
-  image: pumgrana-api-user:latest
+pum-api:
+  image: pumgrana-pum-api:latest
   restart: always
   links:
-    - api-authentication
-    - elasticsearch
-    - postgres
-
-api-authentication:
-  image: pumgrana-api-authentication:latest
-  restart: always
-  links:
-    - postgres
-
-api-plugin:
-  image: pumgrana-api-plugin:latest
-  restart: always
-  ports:
-    - "9000:9000"
-  links:
-    - api-authentication
     - elasticsearch
     - postgres
 
