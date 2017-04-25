@@ -32,7 +32,7 @@ def handler(filepath, project, cmd_name, options):
     command = command_mapper(cmd_name)
     options = " ".join(options)
     cmd = "docker-compose %s %s %s %s" % (filepath, project, command, options)
-    print cmd
+    print(cmd)
     os.system(cmd)
 
 MULTIPLE = {
