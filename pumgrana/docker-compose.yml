@@ -4,7 +4,7 @@ proxy:
   environment:
     CONF_FILE: pumgrana.conf
   ports:
-    - "80:80"
+    - "3000:80"
   links:
     - pum-api
     - dashboard
