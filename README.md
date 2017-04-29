@@ -22,10 +22,7 @@ run `make docker` in following repositories:
  - git@github.com:Pumgrana/pum-api.git  
  - git@github.com:Pumgrana/dashboard.git  
   
-and in following directories:  
- - elasticsearch  
- - postgres  
- - proxy  
+and here in the root directory
 
 ### Launch
 inside pumgrana directory  
