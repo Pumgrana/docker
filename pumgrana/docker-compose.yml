@@ -4,7 +4,7 @@ proxy:
   environment:
     CONF_FILE: pumgrana.conf
   ports:
-    - "3000:80"
+    - "8080:80"
   links:
     - pum-api
     - dashboard
@@ -16,6 +16,8 @@ dashboard:
 pum-api:
   image: pumgrana-pum-api:latest
   restart: always
+  ports:
+    - "3000:3000"
   links:
     - elasticsearch
     - postgres
